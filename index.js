@@ -11,128 +11,126 @@
 
 
 //  2
-// function isEven(value) {
-//     if (value % 2 == 0) {
-//         return true;
-//     }
-//     else
-//         return false;
-//     }
-// }
-// // O(1) because it is only trying to figure out if the value passed in  is divisible by 2 with no remainder and then returning true or false
+function isEven(value) {
+  if (value % 2 == 0) {
+    return true;
+  }
+  else
+    return false;
+}
+// O(1) because it is only trying to figure out if the value passed in  is divisible by 2 with no remainder and then returning true or false
 
 
-// // 3
-// function areYouHere(arr1, arr2) {
-//   for (let i = 0; i < arr1.length; i++) {
-//       const el1 = arr1[i];
-//       for (let j = 0; j < arr2.length; j++) {
-//           const el2 = arr2[j];
-//           if (el1 === el2) return true;
-//       }
-//   }
-//   return false;
-// }
-// // O(n^2) because it will take as long as it takes to go through the nested loop each time it goes through the outer loop until it finds the equal value in both arrays
+// 3
+function areYouHere(arr1, arr2) {
+  for (let i = 0; i < arr1.length; i++) {
+    const el1 = arr1[i];
+    for (let j = 0; j < arr2.length; j++) {
+      const el2 = arr2[j];
+      if (el1 === el2) return true;
+    }
+  }
+  return false;
+}
+// O(n^2) because it will take as long as it takes to go through the nested loop each time it goes through the outer loop until it finds the equal value in both arrays
 
 
-// // 4
-// function doubleArrayValues(array) {
-//   for (let i = 0; i < array.length; i++) {
-//       array[i] *= 2;
-//   }
-//   return array;
-// }
-// // O(n) because it is going through each item in the array and multiplying the value by 2
+// 4
+function doubleArrayValues(array) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] *= 2;
+  }
+  return array;
+}
+// O(n) because it is going through each item in the array and multiplying the value by 2
 
 
-// // 5
-// function naiveSearch(array, item) {
-//   for (let i = 0; i < array.length; i++) {
-//       if (array[i] === item) {
-//           return i;
-//       }
-//   }
-// }
-// // O(n) because it is going through the array and wanting to know if that thing in the array matches the item being passed in
-// // It could be the first thing in the array but the item being passed could also be at the end or not exist in the array
+// 5
+function naiveSearch(array, item) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === item) {
+      return i;
+    }
+  }
+}
+// O(n) because it is going through the array and wanting to know if that thing in the array matches the item being passed in
+// It could be the first thing in the array but the item being passed could also be at the end or not exist in the array
 
 
-// // 6
-// function createPairs(arr) {
-//   for (let i = 0; i < arr.length; i++) {
-//       for(let j = i + 1; j < arr.length; j++) {
-//           console.log(arr[i] + ", " +  arr[j] );
-//       }
-//   }
-// }
-// // O(n^2) because it has to go through the nested loop each time it goes through the outer loop 
+// 6
+function createPairs(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for(let j = i + 1; j < arr.length; j++) {
+      console.log(arr[i] + ", " +  arr[j] );
+    }
+  }
+}
+// O(n^2) because it has to go through the nested loop each time it goes through the outer loop 
 
 
-// // 7
-// function compute(num) {
-//   let result = [];
-//   for (let i = 1; i <= num; i++) {
+// 7
+function compute(num) {
+  let result = [];
+  for (let i = 1; i <= num; i++) {
 
-//       if (i === 1) {
-//           result.push(0);
-//       }
-//       else if (i == 2) {
-//           result.push(1);
-//       }
-//       else {
-//           result.push(result[i - 2] + result[i - 3]);
-//       }
-//   }
-//   return result;
-// }
-// /**
-//  * This function is taking a number and running a loop until i is less than or equal to that number
-//  * It is mutating i depending on its value and then pushing the new value to the results array
-//  * Fibonacci sequence?
-//  * O(n) because it will just run the loop until i matches the number that is passed in
-//  */
-
-
-// // 8
-// function efficientSearch(array, item) {
-//   let minIndex = 0;
-//   let maxIndex = array.length - 1;
-//   let currentIndex;
-//   let currentElement;
-
-//   while (minIndex <= maxIndex) {
-//       currentIndex = Math.floor((minIndex + maxIndex) / 2);
-//       currentElement = array[currentIndex];
-
-//       if (currentElement < item) {
-//           minIndex = currentIndex + 1;
-//       }
-//       else if (currentElement > item) {
-//           maxIndex = currentIndex - 1;
-//       }
-//       else {
-//           return currentIndex;
-//       }
-//   }
-//   return -1;
-// }
-// /**
-//  * This is going through an array and looking for an item
-//  * if the current element in the array less than the item, then the min-index increases by one essentially making the array smaller on the left side
-//  * if the current element is greater than the item then the max-index decreases by one essentially making the array smaller on the right side
-//  * Essentially both of those operations cut the array down to a smaller size 
-//  * if the current element ever matches up to the item that is passed in, then that index is returned
-//  * if the item does not exist in the array -1 is returned
-//  * O(log(n)) because each time the item does not match the current index in the array the array is made smaller so progressivley smaller portions of the array are processed each time
-//  */
+    if (i === 1) {
+      result.push(0);
+    }
+    else if (i == 2) {
+      result.push(1);
+    }
+    else {
+      result.push(result[i - 2] + result[i - 3]);
+    }
+  }
+  return result;
+}
+/**
+ * This function is taking a number and running a loop until i is less than or equal to that number
+ * It is mutating i depending on its value and then pushing the new value to the results array
+ * Fibonacci sequence?
+ * O(n) because it will just run the loop until i matches the number that is passed in
+ */
 
 
-// //  9
-// function findRandomElement(arr) {
-//   return arr[Math.floor(Math.random() * arr.length)];
-// }
-// // O(1) because it is just generating a random number and wanting to know if that is in the array, but is only doing it once?
+// 8
+function efficientSearch(array, item) {
+  let minIndex = 0;
+  let maxIndex = array.length - 1;
+  let currentIndex;
+  let currentElement;
+
+  while (minIndex <= maxIndex) {
+    currentIndex = Math.floor((minIndex + maxIndex) / 2);
+    currentElement = array[currentIndex];
+
+    if (currentElement < item) {
+      minIndex = currentIndex + 1;
+    }
+    else if (currentElement > item) {
+      maxIndex = currentIndex - 1;
+    }
+    else {
+      return currentIndex;
+    }
+  }
+  return -1;
+}
+/**
+ * This is going through an array and looking for an item
+ * the array is being cut in half on line 105 
+ * the min and max indexes are changed in the if statments depending on what the current element is
+ * if the current element ever matches up to the item that is passed in, then that index is returned
+ * if the item does not exist in the array -1 is returned
+ * O(log(n)) because each time the item does not match the current index in the array the array is made smaller so progressivley smaller portions of the array are processed each time
+ */
+
+
+//  9
+function findRandomElement(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+// O(1) because it is just generating a random number and wanting to know if that is in the array, but is only doing it once?
 
 
 // 10
@@ -184,14 +182,12 @@ function TOH(n, source, dest, temp) {
   }
 }
 
-TOH(3, 'a', 'c', 'b')
-// how this works so far
-/**
- * 3: a -> c
- * 2: a -> b
- * 3: c -> b
- * 
- */
+TOH(5, 'a', 'c', 'b');
+// 5 disks after 7 moves: 2 largest disks are on the first peg, 3 smallest disks are on the last peg
+// moves for 3 disks: 7
+// moves for 4 disks: 15
+// moves for 5 disks: 31
+// O(n^2) because the number of moves increases exponentially to the number of disks used
 
 // Iterative Versions
 // Counting sheep
@@ -215,7 +211,7 @@ function powerCal(base, exponent) {
   if(exponent < 0) {
     return 'exponent should be >= 0';
   }
-  return Math.pow(base, exponent)
+  return Math.pow(base, exponent);
 }
 powerCal(10, 2);
 
@@ -230,19 +226,21 @@ reverseString('hello');
 
 // triangular number
 function triangularNum(num) {
-  return num*(num+1)/2
+  return num*(num+1)/2;
 }
 triangularNum(3);
 
 
 // string splitter
 function stringSplitter(separator, string) {
+  let newString = '';
   for(let i = 0; i < string.length; i++) {
-    if(string.charAt(i) === '/') {
-      console.log(string.substring(i));
+    if(string.charAt(i) !== '/') {
+      newString+= string.charAt(i);
+      console.log(newString);
     }
-    console.log(string.charAt(i) + string.substr(1));
   }
+  return newString;
 }
 stringSplitter('/', '02/20/2020');
 
@@ -252,7 +250,7 @@ function fibonacci(num) {
   let result = [];
   for (let i = 1; i <= num; i++) {
     if (i === 1) {
-      result.push(0);
+      result.push(1);
     } else if (i === 2) {
       result.push(1);
     } else {
@@ -261,7 +259,7 @@ function fibonacci(num) {
   }
   return result;
 }
-fibonacci(7);
+fibonacci(45);
 
 
 // Factorial
@@ -277,4 +275,18 @@ function factorial(num) {
 factorial(10);
 
 // 13
-// Fibonacci Recursion Complexity O(2^n)
+/**
+ * 1. O(n) because when calling the function in itself, only being called once
+ * 2. O(n) because function only being called once inside the larger function
+ * 3. O(n) because function only being called once inside itself
+ * 4. O(n) because function only being called once inside itself
+ * 5. O(n) because function only being called once per loop through
+ * 6. O(n^2) because the function is being called twice when returning
+ * 7. O(n) becasue only calling function once inside itself
+ */
+
+//  14
+/**
+ * 1,3,5,6,7: O(n) because only loops through whatever it is passed once and then runs the logic needed inside that loop
+ * 2,4. O(1) because only does simple arithmetic operation
+ */
